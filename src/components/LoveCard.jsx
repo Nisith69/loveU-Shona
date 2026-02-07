@@ -51,7 +51,7 @@ export default function LoveCard({ current }) {
   /* ⏳ TIMER (1 minute test / change to midnight later) */
   useEffect(() => {
     const target = new Date();
-    target.setHours(24, 0, 0, 0); // TEST
+    target.setMinutes(target.getMinutes() + 1); // TEST
 
     const interval = setInterval(() => {
       const diff = target - new Date();
