@@ -17,15 +17,87 @@ body {
   animation: pop 1s ease infinite alternate;
 }
 
+.proposal-buttons {
+  position: relative;
+  margin-top: 25px;
+  height: 80px;
+}
+
+.yes-btn {
+  background: linear-gradient(135deg, #ff2f6d, #ff8fcf);
+  border: none;
+  color: white;
+  padding: 14px 26px;
+  font-size: 18px;
+  border-radius: 30px;
+  cursor: pointer;
+  margin-right: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  animation: pop 1s ease infinite alternate;
+}
+
+.no-btn {
+  position: relative;
+  background: #fff;
+  color: #ff2f6d;
+  border: 2px solid #ff2f6d;
+  padding: 12px 22px;
+  font-size: 16px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.accepted h2 {
+  color: #fff;
+  font-size: 26px;
+  margin-top: 25px;
+  animation: pop 1s ease;
+}
+
+.accepted p {
+  color: #fff;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.love-letter {
+  color: #fff;
+  font-size: 18px;
+  white-space: pre-wrap;
+  text-align: left;
+  margin-top: 15px;
+  line-height: 1.7;
+  text-shadow: 0 3px 10px rgba(0,0,0,0.3);
+}
+
+.proposal-photo {
+  max-width: 160px;
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+  margin: 20px auto;
+  display: block;
+}
+
+
+.final-proposal {
+  margin-top: 20px;
+  font-size: 24px;
+  color: #fff;
+  animation: pop 1.2s ease;
+  text-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
 
 /* MAIN PAGE */
 .page {
   min-height: 100vh;
-  background: linear-gradient(135deg, #ff4f8b, #ff8fcf);
+  width: 100%;
   display: flex;
-  justify-content: center;
   align-items: center;
-  position: relative;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 /* CARD */
@@ -40,6 +112,8 @@ body {
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
   animation: pop 1s ease;
   z-index: 2;
+    max-height: 90vh;
+  overflow-y: auto;
 }
 
 /* TITLE */

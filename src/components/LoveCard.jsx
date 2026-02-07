@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import loveSong from "../assets/love.mp3";
 import cutie1 from "../assets/cutie1.jpg";
 import cutie2 from "../assets/cutie2.jpg";
@@ -7,7 +8,7 @@ import cutie3 from "../assets/cutie3.mp4";
 const media = [
   { type: "image", src: cutie1 },
   { type: "image", src: cutie2 },
-  { type: "video", src: cutie3 }
+  { type: "video", src: cutie3 },
 ];
 
 function Hearts() {
@@ -20,7 +21,7 @@ function Hearts() {
           style={{
             left: Math.random() * 100 + "%",
             animationDelay: Math.random() * 5 + "s",
-            fontSize: Math.random() * 20 + 18
+            fontSize: Math.random() * 20 + 18,
           }}
         >
           ❤️
@@ -30,13 +31,16 @@ function Hearts() {
   );
 }
 
-export default function LoveCard({ current, next }) {
+export default function LoveCard({ current }) {
   const [timer, setTimer] = useState("");
   const [mediaIndex, setMediaIndex] = useState(0);
   const [started, setStarted] = useState(false);
-  const audioRef = useRef(null);
+  const [unlocked, setUnlocked] = useState(false);
 
-  /* Change media */
+  const audioRef = useRef(null);
+  const navigate = useNavigate();
+
+  /* Media rotation */
   useEffect(() => {
     const t = setInterval(() => {
       setMediaIndex(i => (i + 1) % media.length);
@@ -44,28 +48,29 @@ export default function LoveCard({ current, next }) {
     return () => clearInterval(t);
   }, []);
 
-  /* Midnight timer */
+  /* ⏳ TIMER (1 minute test / change to midnight later) */
   useEffect(() => {
+    const target = new Date();
+    target.setMinutes(target.getMinutes() + 1); // TEST
+
     const interval = setInterval(() => {
-      const now = new Date();
-      const midnight = new Date();
-      midnight.setHours(24, 0, 0, 0);
+      const diff = target - new Date();
 
-      const diff = midnight - now;
-
-      if (diff <= 0) window.location.reload();
-      else {
-        const h = Math.floor(diff / 3600000);
-        const m = Math.floor((diff / 60000) % 60);
-        const s = Math.floor((diff / 1000) % 60);
-        setTimer(`${h}h ${m}m ${s}s`);
+      if (diff <= 0) {
+        setUnlocked(true);
+        setTimer("🎉 Unlocked 💖");
+        clearInterval(interval);
+        return;
       }
+
+      const m = Math.floor((diff / 60000) % 60);
+      const s = Math.floor((diff / 1000) % 60);
+      setTimer(`${m}m ${s}s`);
     }, 1000);
 
     return () => clearInterval(interval);
   }, []);
 
-  /* Start music after click */
   const startLove = () => {
     setStarted(true);
     audioRef.current.play();
@@ -109,12 +114,21 @@ export default function LoveCard({ current, next }) {
 
               <p>{current.msg}</p>
 
-              {next && (
+              {!unlocked && (
                 <div className="timer">
                   ⏳ Next surprise unlocks at <br />
                   <strong>12:00 AM 💝</strong>
                   <span>{timer}</span>
                 </div>
+              )}
+
+              {unlocked && (
+                <button
+                  className="start-btn"
+                  onClick={() => navigate("/propose")}
+                >
+                  💍 Open Surprise 💖
+                </button>
               )}
             </div>
           </div>
