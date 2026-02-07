@@ -1,0 +1,168 @@
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+  background: #ff4f8b;
+}
+.start-btn {
+  background: linear-gradient(135deg, #ff2f6d, #ff8fcf);
+  border: none;
+  color: white;
+  padding: 14px 28px;
+  font-size: 18px;
+  border-radius: 30px;
+  cursor: pointer;
+  margin-top: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  animation: pop 1s ease infinite alternate;
+}
+
+
+/* MAIN PAGE */
+.page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ff4f8b, #ff8fcf);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* CARD */
+.card {
+  background: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(18px);
+  padding: 40px 30px;
+  border-radius: 32px;
+  text-align: center;
+  max-width: 420px;
+  width: 90%;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+  animation: pop 1s ease;
+  z-index: 2;
+}
+
+/* TITLE */
+.card h1 {
+  color: #fff;
+  margin-bottom: 15px;
+  font-size: 30px;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+/* IMAGE */
+.card img {
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  border: 5px solid white;
+  object-fit: cover;
+  margin: 15px 0;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+}
+
+/* VIDEO */
+.love-video {
+  width: 240px;
+  height: 240px;
+  border-radius: 25px;
+  border: 5px solid white;
+  object-fit: cover;
+  margin: 15px 0;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+}
+
+/* MESSAGE */
+.card p {
+  color: #fff;
+  font-size: 18px;
+  line-height: 1.6;
+  margin-top: 10px;
+  text-shadow: 0 3px 10px rgba(0,0,0,0.25);
+}
+
+/* FADE EFFECT */
+.fade-img {
+  animation: fade 1.5s ease;
+}
+
+/* TIMER */
+.timer {
+  color: #fff;
+  margin-top: 18px;
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+.timer span {
+  font-size: 20px;
+  font-weight: bold;
+  display: block;
+  margin-top: 5px;
+}
+
+/* FLOATING HEARTS */
+.hearts {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.heart {
+  position: absolute;
+  bottom: -20px;
+  animation: floatUp 6s linear infinite;
+  opacity: 0.8;
+}
+
+/* ANIMATIONS */
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-120vh) scale(1.4);
+    opacity: 0;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pop {
+  from {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+  .card h1 {
+    font-size: 26px;
+  }
+
+  .card img,
+  .love-video {
+    width: 200px;
+    height: 200px;
+  }
+
+  .card p {
+    font-size: 16px;
+  }
+}
