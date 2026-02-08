@@ -1,3 +1,5 @@
+import chocolateImg from "../assets/chocolate.jpg";
+
 export default function ChocolateDay() {
   return (
     <div className="page chocolate">
@@ -6,7 +8,7 @@ export default function ChocolateDay() {
 
         <img
           className="photo"
-          src="/chocolate.jpg"
+          src={chocolateImg}
           alt="chocolate"
         />
 
