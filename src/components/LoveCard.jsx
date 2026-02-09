@@ -23,8 +23,7 @@ function Hearts() {
             left: Math.random() * 100 + "%",
             animationDelay: Math.random() * 5 + "s",
             fontSize: Math.random() * 20 + 18,
-          }}
-        >
+          }}>
           ❤️
         </span>
       ))}
@@ -126,9 +125,8 @@ export default function LoveCard({ current }) {
               {unlocked && (
                 <button
                   className="start-btn"
-                  onClick={() => navigate("/chocolate")}
-                >
-                  🍫 Open Chocolate Surprise 💖
+                  onClick={() => navigate("/teddy")}>
+                  🧸 Open Teddy Surprise
                 </button>
               )}
             </div>

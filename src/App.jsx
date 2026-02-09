@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import LoveCard from "./components/LoveCard";
 import ProposeDay from "./pages/ProposeDay";
 import ChocolateDay from "./pages/ChocolateDay";
+import TeddyDay from "./pages/TeddyDay";
 
 const DAYS = [
   {
@@ -16,6 +17,7 @@ export default function App() {
       <Route path="/" element={<LoveCard current={DAYS[0]} />} />
       <Route path="/propose" element={<ProposeDay />} />
       <Route path="/chocolate" element={<ChocolateDay />} />
+      <Route path="/teddy" element={<TeddyDay />} />
     </Routes>
   );
 }
