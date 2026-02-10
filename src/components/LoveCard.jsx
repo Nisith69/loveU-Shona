@@ -125,8 +125,8 @@ export default function LoveCard({ current }) {
               {unlocked && (
                 <button
                   className="start-btn"
-                  onClick={() => navigate("/teddy")}>
-                  🧸 Open Teddy Surprise
+                  onClick={() => navigate("/promise")}>
+                  💍 Open My Promise
                 </button>
               )}
             </div>
